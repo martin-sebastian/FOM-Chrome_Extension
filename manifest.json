@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Flat Out Motorsports New Tab",
+  "version": "1.0",
+  "permissions": ["bookmarks"],
+  "description": "A new tab extension for Flat out Motorsports Staff with a Google search and out most used links.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FOM Chrome</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="buttons.css" />
+    <style>
+      body {
+        background: #252627;
+        color: #444;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .logo {
+        width: 250px;
+        margin-bottom: 20px;
+      }
+      input[type="text"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+      }
+      button {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100px;
+      }
+      a {
+        color: red;
+        text-decoration: none;
+      }
+      .search-container {
+        margin-bottom: 20px;
+        background: #484849;
+      }
+      .bordered {
+        border: 1px solid #686869;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .gray {
+        color: #4d4e4f;
+      }
+      .primary {
+        color: #dd1f25;
+      }
+      .accent {
+        color: #f5ea13;
+      }
+      ul > li {
+        display: inline-block;
+      }
+      .m-10 {
+        margin: 10px;
+      }
+      .p-10 {
+        padding: 10px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="logo-inverse.svg" alt="Flat Out Motorsports Logo" class="src" />
+    </div>
+    <div class="search-container bordered">
+      <form action="https://www.google.com/search" method="get">
+        <input class="p-10 m-10" type="text" name="q" placeholder="Search Google" />
+        <button class="button-85 m-10" type="submit">Search</button>
+      </form>
+    </div>
+
+    <h2 class="primary">My Links</h2>
+    <ul>
+      <li><a class="button-85 m-10" href="https://www.example.com">Example Website</a></li>
+      <li><a class="button-85 m-10" href="https://www.google.com">Google</a></li>
+      <li><a class="button-85 m-10" href="https://www.youtube.com">YouTube</a></li>
+    </ul>
+    <ul id="bookmarksList"></ul>
+    <script>
+      // JavaScript to fetch and display bookmarks
+      document.addEventListener("DOMContentLoaded", () => {
+        chrome.bookmarks.getTree((bookmarkTreeNodes) => {
+          // ... (code to process bookmarks and add them to the "bookmarksList")
+          chrome.bookmarks.get(["1", "2"], (bookmarks) => {
+            console.log(bookmarks); // Array containing bookmarks with IDs 123 and 456
+          });
+        });
+      });
+      chrome.bookmarks.getTree((bookmarkTreeNodes) => {
+        console.log(bookmarkTreeNodes);
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
